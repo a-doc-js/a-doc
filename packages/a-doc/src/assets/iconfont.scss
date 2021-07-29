@@ -1,0 +1,35 @@
+@import "default-theme";
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(https://example.com/MaterialIcons-Regular.eot),
+    local('Material Icons'),
+    local('MaterialIcons-Regular');
+}
+.material-icons {
+  font-family: 'Material Icons', serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  color: $fr-c-04;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+
+  &.ani { transition: $ani-delay }
+  &.rote90deg { transform: rotate(90deg) }
+  &.rote180deg { transform: rotate(180deg) }
+}

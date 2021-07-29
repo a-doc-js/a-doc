@@ -1,0 +1,9 @@
+@import "default-theme";
+
+@each $method, $color in $c {
+  .c-#{$method} { color: $color }
+  .bc-#{$method} {
+    color: white;
+    background-color: $color
+  }
+}

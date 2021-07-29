@@ -1,0 +1,68 @@
+@import "assets/default-theme";
+
+:host {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  > div.header {
+    background-color: $bg-c-00;
+    height: 48px;
+    padding: {
+      left: 20px; right: 20px;
+    };
+
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0 0 12px $sh-c-00;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > div.favicon {
+      user-select: none;
+      color: $fr-c-00;
+      font: {
+        size: 30px;
+        weight: bold;
+      }
+    }
+    > div.opts {
+      > .material-icons {
+        padding: 5px;
+        border-radius: 4px;
+        user-select: none;
+        cursor: pointer;
+
+        transition: $ani-delay;
+        &:hover {
+          background-color: $bg-c-02;
+        }
+      }
+    }
+  }
+  > div.container {
+    flex-grow: 1;
+
+    display: flex;
+    > div.panel {
+      width: 500px;
+      background-color: $bg-c-01;
+    }
+    > div.detail {
+      flex-grow: 1;
+
+      display: flex;
+      flex-direction: column;
+      > div.tabs {
+        flex-grow: 1;
+
+        > div.tabs-nav {
+        }
+      }
+      > div.logs {
+        height: 120px;
+        border-top: solid 2px $br-c-00;
+      }
+    }
+  }
+}

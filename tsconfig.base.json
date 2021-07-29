@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "strictNullChecks": false,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@a-doc": [ "packages/a-doc/src" ],
+      "@a-doc/*": [ "packages/*/src" ]
+    },
+    "types": [ "node" ],
+    "lib": [ "esnext", "dom" ]
+  },
+  "ts-node": {
+    "require": [ "tsconfig-paths/register" ]
+  }
+}

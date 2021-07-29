@@ -1,0 +1,28 @@
+$bg-c-00: #cfe8fc;
+$bg-c-01: #caddf3;
+$bg-c-02: #b6c3d9;
+$bg-c-03: #b6c3d9;
+$bg-c-04: #aaaaaa;
+$fr-c-00: invert($bg-c-00);
+$fr-c-01: invert($bg-c-01);
+$fr-c-02: invert($bg-c-02);
+$fr-c-03: invert($bg-c-03);
+$fr-c-04: invert($bg-c-04);
+$sh-c-00: #aaaaaa;
+$sh-c-01: #888888;
+$br-c-00: #aaaaaa;
+$br-c-01: #888888;
+
+$ani-delay: .3s;
+
+$c: (
+  get: #47ca7b,
+  head: green,
+  post: #fac545,
+  put: green,
+  delete: #ed4136,
+  connect: green,
+  options: green,
+  trace: green,
+  patch: #8c8c8c,
+);

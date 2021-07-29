@@ -1,0 +1,246 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "a doc",
+    "description": "openapi json of a doc demo.",
+    "version": "0.3.0",
+    "x-logo": {
+      "url": "./static/logo.png"
+    }
+  },
+  "paths": {
+    "/user/login": {
+      "post": {
+        "tags": [ "user" ],
+        "summary": "Login",
+        "description": "登陆用户[账号]\n\n* username 可以为账号或手机号\n* password md5加密过一次后的密码",
+        "operationId": "login_user_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_login_user_login_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "ts[axios]",
+            "source": "/**\n * 登陆用户[账号]\n * \n * * username 可以为账号或手机号\n * * password md5加密过一次后的密码\n *\n */\nasync Login(\n\n): Promise<Out> {\n  return this.instance.post(\n    `/default-api/${this.moduleName}/login`\n  )\n}\n"
+          }
+        ]
+      }
+    },
+    "/user/delivery-addresses/{id}": {
+      "delete": {
+        "tags": [ "user" ],
+        "summary": "Del Delivery Address",
+        "description": "删除用户的收货地址",
+        "operationId": "del_delivery_address_user_delivery_addresses__id__delete",
+        "parameters": [
+          {
+            "description": "收货地址 id",
+            "required": true,
+            "schema": {
+              "title": "Id",
+              "type": "number",
+              "description": "收货地址 id"
+            },
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "ts[axios]",
+            "source": "/**\n * 删除用户的收货地址\n *\n * @param id: {number} [id=] - 收货地址 id\n */\nasync delDeliveryAddress(\n  id: number\n): Promise<Out> {\n  return this.instance.delete(\n    `/default-api/${this.moduleName}/delivery-addresses/${id}`\n  )\n}\n"
+          }
+        ]
+      },
+      "patch": {
+        "tags": [ "user" ],
+        "summary": "Patch Delivery Address",
+        "description": "修改用户的收货地址",
+        "operationId": "patch_delivery_address_user_delivery_addresses__id__patch",
+        "parameters": [
+          {
+            "description": "收货地址 id",
+            "required": true,
+            "schema": {
+              "title": "Id",
+              "type": "number",
+              "description": "收货地址 id"
+            },
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionalDeliveryAddressIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "ts[axios]",
+            "source": "/**\n * 修改用户的收货地址\n *\n * @param id: {number} [id=] - 收货地址 id\n */\nasync patchDeliveryAddress(\n  id: number\n): Promise<Out> {\n  return this.instance.patch(\n    `/default-api/${this.moduleName}/delivery-addresses/${id}`\n  )\n}\n"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "Body_login_user_login_post": {
+        "title": "Body_login_user_login_post",
+        "required": [
+          "login_num",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "login_num": {
+            "title": "Login Num",
+            "type": "string",
+            "description": "登陆账号"
+          },
+          "password": {
+            "title": "Password",
+            "type": "string",
+            "description": "密码"
+          }
+        }
+      },
+      "OptionalDeliveryAddressIn": {
+        "title": "OptionalDeliveryAddressIn",
+        "type": "object",
+        "properties": {
+          "consignee": {
+            "title": "Consignee",
+            "type": "string",
+            "description": "收货人姓名"
+          },
+          "country": {
+            "title": "Country",
+            "type": "integer",
+            "description": "国家"
+          },
+          "province": {
+            "title": "Province",
+            "type": "integer",
+            "description": "省份"
+          },
+          "city": {
+            "title": "City",
+            "type": "integer",
+            "description": "城市"
+          },
+          "district": {
+            "title": "District",
+            "type": "integer",
+            "description": "县区"
+          },
+          "address": {
+            "title": "Address",
+            "type": "string",
+            "description": "详细地址"
+          },
+          "zipcode": {
+            "title": "Zipcode",
+            "type": "string",
+            "description": "邮政编码"
+          },
+          "mobile": {
+            "title": "Mobile",
+            "type": "string",
+            "description": "收获联系电话"
+          },
+          "is_default": {
+            "title": "Is Default",
+            "type": "boolean",
+            "description": "是否为默认地址"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@import "../assets/default-theme";
+
+:host {
+  position: relative;
+  padding: 5px;
+  width: calc(100% - 10px); height: 64px;
+  border: solid 1px $br-c-00;
+  border-radius: 6px;
+  color: $fr-c-00;
+  background-color: $bg-c-00;
+
+  overflow: hidden;
+  transition: $ani-delay;
+
+  display: flex;
+  flex-direction: column;
+  > div.name {
+    line-height: 64px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: $ani-delay;
+  }
+  > div.path {
+    margin-top: 5px;
+    font: {
+      weight: bold;
+      size: 12px;
+    };
+  }
+  > div.desc.hljs {
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  > div.method {
+    position: absolute;
+    bottom: 5px;
+    width: 16px; height: 16px;
+    border-radius: 16px;
+    border: 1px solid $fr-c-00;
+
+    cursor: pointer;
+    transition: $ani-delay;
+
+    &.material-icons {
+      user-select: none;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+}
+:host(:hover) {
+  box-shadow: 0 0 16px $sh-c-01;
+}
+:host([is-open]) {
+  height: 150px;
+  > div.name {
+    line-height: 32px;
+  }
+  > div.method {
+    width: 32px;
+  }
+}

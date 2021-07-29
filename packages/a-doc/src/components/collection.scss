@@ -1,0 +1,44 @@
+@import "../assets/default-theme";
+
+:host {
+  overflow: hidden;
+  transition: $ani-delay;
+
+  display: flex;
+  flex-direction: column;
+  > div.label {
+    padding: 10px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > .material-icons { user-select: none }
+  }
+  > div.apis {
+    &:not(:empty) { padding: 0; }
+    max-height: 0;
+
+    transition: #{$ani-delay*3} ease;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 15px;
+    grid: {
+      template-columns: repeat(3, calc(33.33% - 10px));
+    };
+  }
+}
+:host(:hover) {
+  background-color: $bg-c-02;
+}
+:host([is-open]) {
+  > div.label > .material-icons {
+    transform: rotate(90deg)
+  }
+  > div.apis {
+    &:not(:empty) { padding: 10px; }
+    max-height: 5000px;
+  }
+}

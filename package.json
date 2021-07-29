@@ -1,0 +1,65 @@
+{
+  "private": true,
+  "name": "a-doc-wrokspaces",
+  "version": "0.0.1",
+  "description": "api documents workspaces.",
+  "author": "yijie",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.global.js",
+  "typings": "dist/index.d.ts",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "ts-node ./cli/builder.ts",
+    "build:a-doc": "yarn build --clear --workspaces a-doc --formats all",
+    "build:a-doc:esm": "yarn build --clear --workspaces a-doc --formats esm",
+    "dev:a-doc": "yarn build:a-doc:esm --watch"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-transform-regenerator": "^7.13.15",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/chai": "^4.2.17",
+    "@types/chai-as-promised": "^7.1.3",
+    "@types/inquirer": "^7.3.1",
+    "@types/js-yaml": "^4.0.1",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "chai": "^4.3.4",
+    "commander": "^8.0.0",
+    "eslint": "^7.25.0",
+    "eslint-plugin-mocha": "^8.1.0",
+    "inquirer": "^8.1.2",
+    "lodash.merge": "^4.6.2",
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7",
+    "openapi-types": "^9.1.0",
+    "postcss": "^8.3.6",
+    "rollup": "^2.47.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
+  }
+}
